@@ -16,6 +16,6 @@ The ls command lists and displays files and directories, ls has several options 
 .RS
 the path command is the sequence of directories to be traversed to access a given file separated by /.
 .RE
-.B cd
+.B pwd
 .RS
-The cd command allows you to move between directories, you can specify the directory or go to the home directory just by using the cd command without any parameters
+the pwd command prints the current directory name
