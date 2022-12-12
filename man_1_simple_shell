@@ -1,9 +1,17 @@
 .TH SHELL 12/12/2022 MANUAL
 .SH NAME
-shell(1)
+Shell(1)
 .SH SYNOPSIS
 "hsh" - executable format
 .SH DESCRIPTION
 This project simulates a simple shell, it was developed by Holberton School for the software development fundamentals program.
 .SH OPTIONS
-executes an argument if followed by the prompt and displays its contents if the shell understands it, the arguments covered by the shell are:
+Executes an command if followed by the prompt and displays its contents if the shell understands it, the arguments covered by the shell are:
+.RS
+.B ls [options]
+.RS
+The ls command lists and displays files and directories, ls has several options and usage modes.
+.RE
+.B path
+.RS
+The path command is the sequence of directories to be traversed to access a given file separated by /.
