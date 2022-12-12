@@ -10,7 +10,7 @@
 
 ## Flow Chart📊
 
-**AUTHORS** ✒️
+#### AUTHORS✒️
 
 - [Andres Rodriguez](https://github.com/Andres98100 "Jaime Andres Rodriguez")
 - [Nathaly Ortiz](https://github.com/Natha0b "Nathaly Ortiz")
