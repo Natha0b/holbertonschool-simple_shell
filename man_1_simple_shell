@@ -1,10 +1,15 @@
-.TH SHELL 12/12/2022 MANUAL
+.TH SHELL 12/12/2022/MANUAL
+
 .SH NAME
 Shell(1)
+The shell is an operating system tool that mediates between the user and the operating system kernel. Every time you perform an action on your computer, the shell is acting without you noticing it.
+
 .SH SYNOPSIS
 "hsh" - executable format
+
 .SH DESCRIPTION
-This project simulates a simple shell, it was developed by Holberton School for the software development fundamentals program.
+In this project the reconstruction of the Unix Shell a command line interpreter is performed, which communicates with various programs thus performing actions similar to Unix operating systems, by Holberton School for the software development fundamentals program.
+
 .SH OPTIONS
 Executes an command if followed by the prompt and displays its contents if the shell understands it, the arguments covered by the shell are:
 .RS
@@ -19,3 +24,9 @@ the path command is the sequence of directories to be traversed to access a give
 .B pwd
 .RS
 the pwd command prints the current directory name
+
+AUTHORS
+-Jaime Andres Rodriguez Solarte.
+-Laura Nathaly Ortiz Barona.
+
+23/Dic/2022
