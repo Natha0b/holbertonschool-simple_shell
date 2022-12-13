@@ -11,6 +11,6 @@
 
 /* PROTOTYPES */
 
-int main();
+int main(void);
 
 #endif
