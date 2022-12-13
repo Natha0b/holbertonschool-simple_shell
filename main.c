@@ -15,9 +15,7 @@ int main(void)
 		printf("$ ");
 		scanf(" %99[^\n]", command);
 		if (!strcmp("exit", command))
-		{
 			break;
-		}
 	}
 	return (0);
 }
