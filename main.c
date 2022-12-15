@@ -11,21 +11,21 @@ int main(void)
 	char *buff = NULL;
 	size_t read_len;
 	ssize_t returned_len;
-	
+	int file_d = 0;
 	int p_id;
 	char *arg[1024];
 	unsigned int i = 0;
 
 	while (1)
 	{
-		if (isatty(STDIN_FILENO))
+		if (isatty(file_d))
 			printf("$ ");
 
 		returned_len = getline(&buff, &read_len, stdin);
-		buff[returned_len - 2] = '\0';
+		buff[returned_len - 1] = '\0';
 
 		arg[0] = buff;
-		arg[1] = NULL;
+		arg[1] = '\0';
 
 		if (strcmp("exit", buff) == 0)
 			break;
@@ -49,6 +49,5 @@ int main(void)
 		free(arg[i]);
 		i++;
 	}
-	
 	return (0);
 }
