@@ -22,7 +22,7 @@ int main(void)
 			printf("$ ");
 
 		returned_len = getline(&buff, &read_len, stdin);
-		buff[returned_len - 1] = '\0';
+		buff[returned_len - 2] = '\0';
 
 		arg[0] = buff;
 		arg[1] = NULL;
