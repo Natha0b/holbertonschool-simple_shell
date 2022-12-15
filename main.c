@@ -23,7 +23,7 @@ int main(void)
 
 		returned_len = getline(&buff, &read_len, stdin);
 
-		buff[returned_len - 1] = '\0';
+		buff[returned_len] = '\0';
 
 		arg[0] = buff;
 		arg[1] = NULL;
