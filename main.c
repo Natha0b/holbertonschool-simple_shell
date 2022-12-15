@@ -13,6 +13,7 @@ int main(void)
 	ssize_t returned_len;
 	int file_d = 0;
 	int p_id;
+	int status = 0;
 	char *arg[1024];
 	unsigned int i = 0;
 
@@ -42,7 +43,7 @@ int main(void)
 			}
 		}
 		else
-			wait(NULL);
+			wait(&status);
 	}
 	while (i < 2)
 	{
