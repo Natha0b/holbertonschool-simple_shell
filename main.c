@@ -14,6 +14,7 @@ int main(void)
 	int file_d = 0;
 	int p_id;
 	char *arg[1024];
+	unsigned int i = 0;
 
 	while (1)
 	{
@@ -43,7 +44,11 @@ int main(void)
 		}
 		else
 			wait(NULL);
-
+	}
+	while (i < 2)
+	{
+		free(arg[i]);
+		i++;
 	}
 
 	return (0);
