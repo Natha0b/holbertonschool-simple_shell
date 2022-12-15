@@ -9,21 +9,20 @@
 int main(void)
 {
 	char *buff = NULL;
-	size_t read_len = 0;
+	size_t read_len;
 	ssize_t returned_len;
-	int file_d = 0;
+	
 	int p_id;
 	char *arg[1024];
 	unsigned int i = 0;
 
 	while (1)
 	{
-		if (isatty(file_d))
+		if (isatty(STDIN_FILENO))
 			printf("$ ");
 
 		returned_len = getline(&buff, &read_len, stdin);
-		fflush(stdin);
-		/*buff[returned_len - 1] = '\0';*/
+		buff[returned_len - 1] = '\0';
 
 		arg[0] = buff;
 		arg[1] = NULL;
@@ -50,6 +49,6 @@ int main(void)
 		free(arg[i]);
 		i++;
 	}
-
+	
 	return (0);
 }
