@@ -22,7 +22,7 @@ int main(void)
 			printf("$ ");
 
 		returned_len = getline(&buff, &read_len, stdin);
-		fflush(returned_len);
+		fflush(stdin);
 		/*buff[returned_len - 1] = '\0';*/
 
 		arg[0] = buff;
