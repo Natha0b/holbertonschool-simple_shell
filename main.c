@@ -22,8 +22,8 @@ int main(void)
 			printf("$ ");
 
 		returned_len = getline(&buff, &read_len, stdin);
-		buff[returned_len - 1] = '\0';
-		fflush(stdin);
+		fflush(returned_len);
+		/*buff[returned_len - 1] = '\0';*/
 
 		arg[0] = buff;
 		arg[1] = NULL;
