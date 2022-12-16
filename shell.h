@@ -5,6 +5,8 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <fcntl.h>
+#include <errno.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
@@ -15,6 +17,5 @@
 
 int main(void);
 void func_strtok(char *buff, char *str_p);
-int file_exists(char *filename);
 
 #endif
