@@ -15,5 +15,6 @@
 
 int main(void);
 void func_strtok(char *buff, char *str_p);
+int file_exists(char *filename);
 
 #endif
