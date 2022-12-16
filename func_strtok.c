@@ -6,25 +6,19 @@
  * Return: int
  */
 
-void func_strtok(char *buff)
+void func_strtok(char *buff, char *str_p)
 {
-	char *arg[100], *str_p = getenv("PATH");
 	char str[100], *len = str, *n = NULL;
-	int i;
+	int i = 0;
 
 	while (str_p[i])
-		{
-			i++;
-		}
+		i++;
+	(void)buff;
 
-		if (strcmp(buff, "PATH") == 0)
-		{
-
-			strcpy(str, str_p);
-			while ((n = strtok(len, ":")) != NULL)
-			{
-				printf("%s\n", n);
-				n = NULL;
-			}
-		}
+	strcpy(str, str_p);
+	while ((n = strtok(len, ":")) != NULL)
+	{
+		printf("%s\n", n);
+		n = NULL;
+	}
 }

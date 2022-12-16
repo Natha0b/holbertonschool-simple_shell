@@ -14,6 +14,6 @@
 
 
 int main(void);
-void func_strtok(char *buff);
+void func_strtok(char *buff, char *str_p);
 
 #endif

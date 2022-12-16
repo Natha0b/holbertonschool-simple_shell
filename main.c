@@ -16,7 +16,7 @@ int main(void)
 	int status = 0;
 	char *arg[1024];
 	unsigned int i = 0;
-	char *s;
+	char *str_p = getenv("PATH");
 
 	while (1)
 	{
@@ -35,8 +35,12 @@ int main(void)
 		if (returned_len == -1)
 			break;
 
-		func_strtok(buff);
-		
+		if (strcmp(buff, "PATH") == 0)
+		{
+			func_strtok(buff, str_p);
+			break;
+		}
+
 		p_id = fork();
 
 		if (p_id == 0)
