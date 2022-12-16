@@ -8,22 +8,23 @@
 
 int main(void)
 {
-	char *buff = NULL;
-	size_t read_len;
+	char *buff;
+	size_t read_len = 120;
 	ssize_t returned_len;
 	int file_d = 0;
 	int p_id;
 	int status = 0;
 	char *arg[1024];
-	unsigned int i = 0;
+	/*unsigned int i = 0;*/
 	char *str_p = getenv("PATH");
 
+	buff = calloc(read_len, sizeof(char));
 	while (1)
 	{
 		if (isatty(file_d))
 			printf("$ ");
 
-		returned_len = getline(&buff, &read_len, stdin);
+		returned_len = getline((char **)&buff, &read_len, stdin);
 		buff[returned_len - 1] = '\0';
 
 		arg[0] = buff;
@@ -50,10 +51,11 @@ int main(void)
 		else
 			wait(&status);
 	}
-	while (i < 2)
+	/*while (i < 2)
 	{
 		free(arg[i]);
 		i++;
-	}
+	}*/
+	free(buff);
 	return (0);
 }
