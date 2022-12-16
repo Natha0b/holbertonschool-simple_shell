@@ -18,11 +18,15 @@ int main(void)
 	/*unsigned int i = 0;*/
 	char *str_p = getenv("PATH");
 
-	buff = calloc(100, sizeof(*buff));
 	while (1)
 	{
 		if (isatty(file_d))
 			printf("$ ");
+
+		buff = calloc(100, sizeof(*buff));
+
+		if (buff == NULL)
+			return (1);
 
 		returned_len = getline((char **)&buff, &read_len, stdin);
 		buff[returned_len - 1] = '\0';
