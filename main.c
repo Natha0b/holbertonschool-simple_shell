@@ -16,6 +16,7 @@ int main(void)
 	int status = 0;
 	char *arg[1024];
 	unsigned int i = 0;
+	char *s;
 
 	while (1)
 	{
@@ -33,6 +34,9 @@ int main(void)
 
 		if (returned_len == -1)
 			break;
+
+		func_strtok(buff);
+		
 		p_id = fork();
 
 		if (p_id == 0)

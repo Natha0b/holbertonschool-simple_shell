@@ -6,7 +6,7 @@
  * Return: int
  */
 
-int main(void)
+void func_strtok(char *buff)
 {
 	char *arg[100], *str_p = getenv("PATH");
 	char str[100], *len = str, *n = NULL;
