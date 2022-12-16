@@ -19,6 +19,6 @@ void func_strtok(char *buff, char *str_p)
 	while ((n = strtok(len, ":")) != NULL)
 	{
 		printf("%s\n", n);
-		n = NULL;
+		len = NULL;
 	}
 }

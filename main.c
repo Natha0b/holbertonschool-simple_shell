@@ -36,10 +36,7 @@ int main(void)
 			break;
 
 		if (strcmp(buff, "PATH") == 0)
-		{
 			func_strtok(buff, str_p);
-			break;
-		}
 
 		p_id = fork();
 
