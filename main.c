@@ -18,7 +18,7 @@ int main(void)
 	/*unsigned int i = 0;*/
 	char *str_p = getenv("PATH");
 
-	buff = calloc(read_len, sizeof(char));
+	buff = calloc(100, sizeof(*buff));
 	while (1)
 	{
 		if (isatty(file_d))
