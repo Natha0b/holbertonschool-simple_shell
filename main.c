@@ -23,7 +23,7 @@ int main(void)
 		if (isatty(file_d))
 			printf("$ ");
 
-		buff = calloc(100, sizeof(*buff));
+		buff = calloc(1024, sizeof(*buff));
 
 		if (buff == NULL)
 			return (1);
