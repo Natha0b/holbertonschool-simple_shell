@@ -14,7 +14,7 @@ int _strcmp(char *s1, char *s2)
 		{
 			return (*s1 - *s2);
 		}
-		
+
 		s1++;
 		s2++;
 	}
@@ -54,7 +54,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	}
 
 	return (a);
-
 }
 
 /**
@@ -66,16 +65,16 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 char *_strcpy(char *dest, char *src)
 {
 	char *p = dest;
-	
+
 	while (*src != '\0')
 	{
 		*dest = *src;
 		dest++;
 		src++;
 	}
-	
+
 	*dest = '\0';
-	
+
 	return (p);
 }
 
@@ -87,25 +86,25 @@ char *_strcpy(char *dest, char *src)
 
 char *_getenv(const char *name)
 {
-    int i, j;
-    int status;
+	int i, j;
+	int status;
 
-for (i = 0; __environ[i] != NULL; i++)
-{
-    status = 1;
-    for (j = 0; __environ[i][j] != '='; j++)
-    {
-        if (name[j] != __environ[i][j])
-        {
-            status = 0;
-            break;
-        }
-    }
+	for (i = 0; __environ[i] != NULL; i++)
+	{
+		status = 1;
+		for (j = 0; __environ[i][j] != '='; j++)
+		{
+			if (name[j] != __environ[i][j])
+			{
+				status = 0;
+				break;
+			}
+		}
 
-    if (status)
-    {
-        return (&__environ[i][j + 1]);
-    }
-}
-return (NULL);
+		if (status)
+		{
+			return (&__environ[i][j + 1]);
+		}
+	}
+	return (NULL);
 }
