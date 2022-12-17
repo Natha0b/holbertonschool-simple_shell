@@ -15,6 +15,7 @@ int main(void)
 	int p_id;
 	int status = 0;
 	char *arg[1024];
+	char **array_path = NULL;
 	/*unsigned int i = 0;*/
 	char *str_p = _getenv("PATH");
 
@@ -41,7 +42,8 @@ int main(void)
 			break;
 
 		if (_strcmp(buff, "PATH") == 0)
-			func_strtok(buff, str_p);
+			array_path = func_strtok(buff, str_p);
+
 
 		p_id = fork();
 
