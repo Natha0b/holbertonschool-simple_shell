@@ -16,7 +16,7 @@ int main(void)
 	int status = 0;
 	char *arg[1024];
 	/*unsigned int i = 0;*/
-	char *str_p = getenv("PATH");
+	char *str_p = _getenv("PATH");
 
 	while (1)
 	{
