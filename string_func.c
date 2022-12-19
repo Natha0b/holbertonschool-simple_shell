@@ -88,13 +88,14 @@ char *_getenv(const char *name)
 {
 	int i, j;
 	int status;
+	extern char **environ;
 
-	for (i = 0; __environ[i] != NULL; i++)
+	for (i = 0; environ[i] != NULL; i++)
 	{
 		status = 1;
-		for (j = 0; __environ[i][j] != '='; j++)
+		for (j = 0; environ[i][j] != '='; j++)
 		{
-			if (name[j] != __environ[i][j])
+			if (name[j] != environ[i][j])
 			{
 				status = 0;
 				break;
@@ -103,7 +104,7 @@ char *_getenv(const char *name)
 
 		if (status)
 		{
-			return (&__environ[i][j + 1]);
+			return (&environ[i][j + 1]);
 		}
 	}
 	return (NULL);

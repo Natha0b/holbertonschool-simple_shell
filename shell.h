@@ -9,6 +9,7 @@
 #include <errno.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 #include <unistd.h>
 #include <string.h>
 
@@ -21,4 +22,6 @@ int _strcmp(char *s1, char *s2);
 void *_calloc(unsigned int nmemb, unsigned int size);
 char *_strcpy(char *dest, char *src);
 char *_getenv(const char *name);
+char *_strcat(char *dest, char *src);
+char *search_path(char *command);
 #endif
