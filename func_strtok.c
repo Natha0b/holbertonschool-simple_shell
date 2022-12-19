@@ -6,9 +6,9 @@
  * Return: int
  */
 
-char **func_strtok(char *buff, char *str_p)
+char **func_strtok(char *str_p)
 {
-	char str[100], *len = str, *n = NULL;
+	char *n = NULL;
 	int i = 0, j = 0;
 	char **array_path;
 
@@ -19,13 +19,12 @@ char **func_strtok(char *buff, char *str_p)
 
 	while (str_p[i])
 		i++;
-	(void)buff;
 
-	strcpy(str, str_p);
-	while ((n = strtok(len, ":")) != NULL)
+	while ((n = strtok(str_p, ":")) != NULL)
 	{
+		if (!n)
+			break;
 		printf("%s\n", n);
-		len = NULL;
 		array_path[j] = n;
 		str_p = NULL;
 		j++;
