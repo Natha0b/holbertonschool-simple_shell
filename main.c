@@ -26,8 +26,10 @@ int main(int argc, char **arg)
 		buff[returned_len - 1] = '\0';
 		if (_strcmp("exit", buff) == 0)
 			break;
+
 		arg = func_strtok(buff, " ");
 		arg[0] = search_path(arg[0]);
+
 		p_id = fork();
 		if (p_id == 0)
 		{
