@@ -6,13 +6,14 @@
  * Return: int
  */
 
-int main(void)
+int main(int argc, char **arg, char **env)
 {
-	char *buff, *found_path, *arg[1024];
+	char *buff;
 	size_t read_len = 120;
 	ssize_t returned_len;
-	int p_id, i = 0;
+	int p_id, i = 0, status = 0;
 
+	(void)argc;
 	while (1)
 	{
 		if (isatty(0))
@@ -22,22 +23,20 @@ int main(void)
 		if (returned_len == -1)
 			break;
 		buff[returned_len - 1] = '\0';
-		arg[0] = buff;
-		arg[1] = NULL;
-
 		if (_strcmp("exit", buff) == 0)
 			break;
-		found_path = search_path(buff);
+		arg = func_strtok(buff, " ");
+		arg[0] = search_path(arg[0]);
 		p_id = fork();
 		if (p_id == 0)
 		{
-			if (execve(found_path, arg, NULL) == -1)
+			if (execve(arg[0], arg, env) == -1)
 			{
 				perror("Error:");
 			}
 		}
 		else
-			wait(NULL);
+			wait(&status);
 	}
 	while (arg[i])
 	{

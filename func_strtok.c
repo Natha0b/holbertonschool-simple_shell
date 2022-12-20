@@ -3,29 +3,27 @@
 /**
  * func_strtok - function separates with a delimiter
  * @str_p: variable char
+ * @delim: variable char
  * Return: char
  */
 
-char **func_strtok(char *str_p)
+char **func_strtok(char *str_p, char *delim)
 {
 	char *split, **array_path;
-	int i = 0;
+	int i = 0, j = 0;
 
 	array_path = (char **)malloc(sizeof(char *) * 100);
-
 	if (!array_path)
-	{
-		free(array_path);
 		return (NULL);
-	}
-	while ((split = strtok(str_p, ":")) != NULL)
-	{
-		if (!split)
-			break;
-		array_path[i] = split;
-		str_p = NULL;
+	while (str_p[i])
 		i++;
+	while ((split = strtok(str_p, delim)) != NULL)
+	{
+		array_path[j] = split;
+		str_p = strtok(NULL, delim);
+		j++;
 	}
+	array_path[j] = NULL;
 	return (array_path);
 }
 
@@ -43,23 +41,20 @@ char *search_path(char *command)
 	char *str_path = _getenv("PATH");
 
 	cpy = malloc(strlen(str_path) + 1);
-	cpy = _strcpy(cpy, str_path);
-	array_path = func_strtok(cpy);
+	cpy = strcpy(cpy, str_path);
+	array_path = func_strtok(cpy, ":");
 	while (array_path[i])
 	{
 		len_root = strlen(array_path[i]);
-		if (array_path[i][len_root - 1] == '/')
-		{
-			found_path = _strcat(array_path[i], command);
-		}
-		else
-		{
-			found_path = _strcat(array_path[i], "/");
-			found_path = _strcat(found_path, command);
-		}
+		if (array_path[i][len_root - 1] != '/')
+			found_path = strcat(array_path[i], "/");
+
+		found_path = strcat(found_path, command);
+
 		if (stat(found_path, &info) == 0)
 			break;
 		i++;
+		printf("%s\n", found_path);
 	}
 	free(cpy);
 	free(array_path);

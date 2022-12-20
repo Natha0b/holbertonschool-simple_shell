@@ -15,9 +15,7 @@
 
 /* PROTOTYPES */
 
-
-int main(void);
-char **func_strtok(char *str_p);
+char **func_strtok(char *str_p, char *delim);
 int _strcmp(char *s1, char *s2);
 char *_strcpy(char *dest, char *src);
 char *_getenv(const char *name);
