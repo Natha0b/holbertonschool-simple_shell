@@ -8,11 +8,10 @@
 
 int main(void)
 {
-	char *buff, *found_path;
+	char *buff, *found_path, *arg[1024];
 	size_t read_len = 120;
 	ssize_t returned_len;
-	int file_d = 0, status = 0, p_id, i = 0;
-	char *arg[1024], **array_path = NULL;
+	int file_d = 0, status = 0, p_id;
 
 	while (1)
 	{
@@ -32,7 +31,6 @@ int main(void)
 
 		if (_strcmp("exit", buff) == 0)
 			break;
-
 
 		found_path = search_path(buff);
 		printf("%s\n", found_path);

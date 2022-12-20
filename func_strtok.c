@@ -8,10 +8,10 @@
 
 char **func_strtok(char *str_p)
 {
-	char *n;
-	int i = 0, j = 0;
-	char **array_path;
+	char *split, **array_path;
+	int i = 0;
 
+	split = strtok(str_p, ":");
 	array_path = (char **)malloc(sizeof(char *) * 1024);
 
 	if (!array_path)
@@ -20,13 +20,11 @@ char **func_strtok(char *str_p)
 		return (NULL);
 	}
 
-	while ((n = strtok(str_p, ":")) != NULL)
+	while (split)
 	{
-		if (!n)
-			break;
-		array_path[j] = n;
+		array_path[i] = split;
 		str_p = NULL;
-		j++;
+		i++;
 	}
 	return (&(*array_path));
 }
@@ -44,24 +42,27 @@ char *search_path(char *command)
 	struct stat info;
 	char *str_path = _getenv("PATH");
 
+	cpy = malloc(strlen(str_path) + 1);
 	cpy = _strcpy(cpy, str_path);
 	array_path = func_strtok(cpy);
-	/*good*/
 	while (array_path[i])
 	{
 		len_root = strlen(array_path[i]);
 		if (array_path[i][len_root - 1] == '/')
 		{
 			found_path = _strcat(array_path[i], command);
+			printf("%s\n", found_path);
 		}
 		else
 		{
 			found_path = _strcat(array_path[i], "/");
 			found_path = _strcat(found_path, command);
+			printf("%s\n", found_path);
 		}
 		if (stat(found_path, &info) == 0)
 			break;
 		i++;
 	}
+	printf("%s\n", found_path);
 	return (found_path);
 }
