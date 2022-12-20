@@ -6,12 +6,13 @@
  * Return: int
  */
 
-int main(int argc, char **arg, char **env)
+int main(int argc, char **arg)
 {
 	char *buff;
-	size_t read_len = 120;
-	ssize_t returned_len;
-	int p_id, i = 0, status = 0;
+	size_t read_len = 0;
+	ssize_t returned_len = 0;
+	pid_t p_id;
+	int i = 0, status;
 
 	(void)argc;
 	while (1)
@@ -19,7 +20,7 @@ int main(int argc, char **arg, char **env)
 		if (isatty(0))
 			printf("$ ");
 
-		returned_len = getline((char **)&buff, &read_len, stdin);
+		returned_len = getline(&buff, &read_len, stdin);
 		if (returned_len == -1)
 			break;
 		buff[returned_len - 1] = '\0';
@@ -30,13 +31,13 @@ int main(int argc, char **arg, char **env)
 		p_id = fork();
 		if (p_id == 0)
 		{
-			if (execve(arg[0], arg, env) == -1)
+			if (execve(arg[0], arg, NULL) == -1)
 			{
 				perror("Error:");
 			}
 		}
 		else
-			wait(&status);
+			wait(&status);	
 	}
 	while (arg[i])
 	{

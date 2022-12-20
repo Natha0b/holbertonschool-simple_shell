@@ -20,7 +20,7 @@ char **func_strtok(char *str_p, char *delim)
 	while ((split = strtok(str_p, delim)) != NULL)
 	{
 		array_path[j] = split;
-		str_p = strtok(NULL, delim);
+		str_p = NULL;
 		j++;
 	}
 	array_path[j] = NULL;
@@ -49,12 +49,11 @@ char *search_path(char *command)
 		if (array_path[i][len_root - 1] != '/')
 			found_path = strcat(array_path[i], "/");
 
-		found_path = strcat(found_path, command);
+		found_path = strcat(array_path[i], command);
 
 		if (stat(found_path, &info) == 0)
 			break;
 		i++;
-		printf("%s\n", found_path);
 	}
 	free(cpy);
 	free(array_path);
