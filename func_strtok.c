@@ -55,7 +55,5 @@ char *search_path(char *command)
 			break;
 		i++;
 	}
-	free(cpy);
-	free(array_path);
 	return (found_path);
 }

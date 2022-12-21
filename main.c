@@ -31,18 +31,27 @@ int main(int argc, char **arg)
 			_env();
 
 		arg = func_strtok(buff, " ");
-		arg[0] = search_path(buff);
+		arg[0] = search_path(arg[0]);
 
-		p_id = fork();
-		if (p_id == 0)
+		if (arg[0] != NULL)
 		{
-			if (execve(arg[0], arg, NULL) == -1)
+			p_id = fork();
+			if (p_id == 0)
 			{
-				perror("Error:");
+				if (execve(arg[0], arg, NULL) == -1)
+				{
+					perror("Error:");
+				}
+			}
+			else
+			{
+				wait(&status);
+				if (WIFEXITED(status))
+					status = WEXITSTATUS(status);
 			}
 		}
 		else
-			wait(&status);
+			perror("Error");
 	}
 	return (0);
 }
