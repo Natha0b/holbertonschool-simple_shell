@@ -15,10 +15,13 @@
 
 /* PROTOTYPES */
 
+extern char **environ;
+
 char **func_strtok(char *str_p, char *delim);
 int _strcmp(char *s1, char *s2);
 char *_strcpy(char *dest, char *src);
 char *_getenv(const char *name);
 char *_strcat(char *dest, char *src);
 char *search_path(char *command);
+void _env();
 #endif
