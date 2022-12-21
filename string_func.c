@@ -44,37 +44,6 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
- **_getenv - function a string
- *@name: varible punter
- *Return: pointer
- */
-
-char *_getenv(const char *name)
-{
-	int i, j;
-	int status;
-
-	for (i = 0; environ[i] != NULL; i++)
-	{
-		status = 1;
-		for (j = 0; environ[i][j] != '='; j++)
-		{
-			if (name[j] != environ[i][j])
-			{
-				status = 0;
-				break;
-			}
-		}
-
-		if (status)
-		{
-			return (&environ[i][j + 1]);
-		}
-	}
-	return (NULL);
-}
-
-/**
  **_strcat - function a string
  *@dest: varible punter
  *@src: varible punter
@@ -97,21 +66,4 @@ char *_strcat(char *dest, char *src)
 
 	dest[c] = '\0';
 	return (p);
-}
-
-/**
- * _env - function print the environ variables
- * @void: variable void
- * Return: void
-*/
-
-void _env(void)
-{
-	int i = 0;
-
-	while (environ[i])
-	{
-		printf("%s\n", environ[i]);
-		i++;
-	}
 }

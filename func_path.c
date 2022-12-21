@@ -43,6 +43,7 @@ char *search_path(char *command)
 	cpy = malloc(strlen(str_path) + 1);
 	cpy = strcpy(cpy, str_path);
 	array_path = func_strtok(cpy, ":");
+	
 	while (array_path[i] != NULL)
 	{
 		len_root = strlen(array_path[i]);
@@ -50,7 +51,6 @@ char *search_path(char *command)
 			found_path = strcat(array_path[i], "/");
 
 		found_path = strcat(array_path[i], command);
-
 		if (stat(found_path, &info) == 0)
 			break;
 		i++;
