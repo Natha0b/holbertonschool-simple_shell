@@ -8,6 +8,17 @@
 ## Compilation💻
 ##### `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh` and run the interpreter mode with `./hsh.` In addition, use `echo "ls" | ./hsh ` to use non-interactive mode.
 
+## Projects
+All of the following folders are projects done during the studies:
+
+| Command name | Description |
+| ------------ | ----------- |
+| `ls` [options] |  This command lists information about directories and any type of files in the working directory. |
+| `pwd` | the pwd command (print working directory) writes the full pathname of the current working directory to the standard output. |
+| `echo` [argument] | echo command in linux is used to display line of text/string that are passed as an argument . This is a built in command that is mostly used in shell scripts and batch files to output status text to the screen or a file. |
+| `env` | this command print all environment variables. |
+
+
 ## Flow Chart📊
 ## Examples🧩
 
