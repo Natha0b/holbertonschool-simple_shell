@@ -12,7 +12,7 @@ char **func_strtok(char *str_p, char *delim)
 	char *split, **array_path;
 	int i = 0, j = 0;
 
-	array_path = (char **)malloc(sizeof(char *) * 100);
+	array_path = (char **)calloc(100, sizeof(char *));
 	if (!array_path)
 		return (NULL);
 	while (str_p[i])
@@ -23,7 +23,6 @@ char **func_strtok(char *str_p, char *delim)
 		str_p = NULL;
 		j++;
 	}
-	array_path[j] = NULL;
 	return (array_path);
 }
 
@@ -41,18 +40,20 @@ char *search_path(char *command)
 	char *str_path = _getenv("PATH");
 
 	if (stat(command, &info) == 0)
-		return (command);
+		return (command); /* valida que la ruta enviada sea la misma que el comando*/
+		
 	cpy = malloc(strlen(str_path) + 1);
-	cpy = strcpy(cpy, str_path);
-	array_path = func_strtok(cpy, ":");
-	while (array_path[i] != NULL)
+	cpy = strcpy(cpy, str_path); /* copia del path */
+	array_path = func_strtok(cpy, ":"); /* divir el path con un delimitador */
+
+	while (array_path[i] != NULL) /* recorro el path */
 	{
 		len_root = strlen(array_path[i]);
 		if (array_path[i][len_root - 1] != '/')
 			found_path = strcat(array_path[i], "/");
 
 		found_path = strcat(array_path[i], command);
-		if (stat(found_path, &info) == 0)
+		if (stat(found_path, &info) == 0) /* si encuentra el comando sale con 1 */
 		{
 			aux = 1;
 			break;
@@ -61,7 +62,7 @@ char *search_path(char *command)
 	}
 	free(cpy);
 	free(array_path);
-	if (!aux)
+	if (!aux) /* si no lo encuentra retorna null */
 		return (NULL);
 	return (found_path);
 }

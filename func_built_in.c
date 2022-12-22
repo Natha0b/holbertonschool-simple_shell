@@ -14,8 +14,10 @@ char *_getenv(const char *name)
 	for (i = 0; environ[i] != NULL; i++)
 	{
 		status = 1;
+		/* recorre las rutas y valida la variable de entorno */
 		for (j = 0; environ[i][j] != '='; j++)
 		{
+			/* si el comando es diferente a la ruta/comando sale con 0 */
 			if (name[j] != environ[i][j])
 			{
 				status = 0;
