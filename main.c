@@ -3,7 +3,6 @@
 /**
  * main - function main
  * @argc: variable int
- * @arg: variable matriz char
  * @environ: variable char
  * Return: int
  */
