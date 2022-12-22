@@ -29,7 +29,7 @@ int main(void)
 			_env();
 			continue;
 		}
-		for (i = 0; buff[i] != '\0'; i++) /* Check if input has spaces */
+		for (i = 0; buff[i] != '\0'; i++)
 		{
 			if (buff[i] != ' ')
 			{

@@ -39,16 +39,12 @@ char *search_path(char *command)
 	struct stat info;
 	char *str_path = _getenv("PATH");
 
-	/* validates that the path sent is the same as the command */
 	if (stat(command, &info) == 0)
 		return (command);
 
 	cpy = malloc(_strlen(str_path) + 1);
-	/* path copy */
 	cpy = _strcpy(cpy, str_path);
-	/* split the path with a delimiter */
 	array_path = func_strtok(cpy, ":");
-	/* the path is traversed */
 	while (array_path[i] != NULL)
 	{
 		len_root = _strlen(array_path[i]);
@@ -56,7 +52,6 @@ char *search_path(char *command)
 			found_path = _strcat(array_path[i], "/");
 
 		found_path = _strcat(array_path[i], command);
-		/* if it finds the command it exits with 1 */
 		if (stat(found_path, &info) == 0)
 		{
 			aux = 1;
@@ -66,7 +61,6 @@ char *search_path(char *command)
 	}
 	free(cpy);
 	free(array_path);
-	/* if not found it returns null */
 	if (!aux)
 		return (NULL);
 	return (found_path);
