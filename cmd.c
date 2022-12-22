@@ -7,7 +7,7 @@
  * Return: void
 */
 
-int execute_env(char **arg, char **environ)
+int execute_env(char **arg)
 {
 	pid_t p_id;
 	int status;
