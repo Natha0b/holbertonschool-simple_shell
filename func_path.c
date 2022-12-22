@@ -62,5 +62,6 @@ char *search_path(char *command)
 	if (!aux)
 		return (NULL);
 	free(array_path);
+	free(cpy);
 	return (found_path);
 }
