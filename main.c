@@ -49,7 +49,7 @@ int main(int argc, char **arg)
 					status = WEXITSTATUS(status);
 			}
 		}
+		free(arg);
 	}
-	free(arg);
 	return (0);
 }
