@@ -34,7 +34,7 @@ char **func_strtok(char *str_p, char *delim)
 
 char *search_path(char *command)
 {
-	char *found_path, **array_path, *cpy;
+	char *found_path, **array_path = NULL, *cpy = NULL;
 	int len_root, aux = 0, i = 0;
 	struct stat info;
 	char *str_path = _getenv("PATH");

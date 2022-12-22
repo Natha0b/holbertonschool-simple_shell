@@ -10,7 +10,7 @@
 
 int main(int argc, char **arg, char **environ)
 {
-	char *buff;
+	char *buff = NULL;
 	size_t read_len = 0;
 	ssize_t get_len = 0;
 
