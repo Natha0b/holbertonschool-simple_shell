@@ -23,7 +23,16 @@ All of the following folders are projects done during the studies:
 
 <img src="https://i.imgur.com/Zn3soaQ.jpg" alt="Flow Chart">
 
+
 ## Examples🧩
+
+<img src="https://i.imgur.com/goAzJtI.jpeg" alt="Examples">
+
+<img src="https://i.imgur.com/FarbzVv.jpeg" alt="Examples">
+
+<img src="https://i.imgur.com/530ZuQI.jpeg" alt="Examples">
+
+<img src="https://i.imgur.com/xBQO1JJ.jpeg" alt="Examples">
 
 #### AUTHORS✒️
 
