@@ -70,3 +70,48 @@ char *_strcat(char *dest, char *src)
 	dest[c] = '\0';
 	return (p);
 }
+
+/**
+*_calloc - function allocates memory
+*@nmemb: variable
+*@size: variable
+*Return: zero
+*/
+
+void *_calloc(unsigned int nmemb, unsigned int size)
+{
+	char *arr = NULL;
+	unsigned int i;
+
+	if (nmemb == 0 || size == 0)
+	{
+		return (NULL);
+	}
+	arr = malloc(nmemb * size);
+	if (arr == NULL)
+	{
+		return (NULL);
+	}
+	for (i = 0; i < nmemb * size; i++)
+	{
+		arr[i] = 0;
+	}
+	return (arr);
+}
+
+/**
+*_strlen - function
+*@s: variable
+*Return: int
+*/
+
+int _strlen(char *s)
+{
+	int count = 0;
+
+	while (s[count] != '\0')
+	{
+		count++;
+	}
+	return (count);
+}

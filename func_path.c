@@ -12,7 +12,7 @@ char **func_strtok(char *str_p, char *delim)
 	char *split, **array_path;
 	int i = 0, j = 0;
 
-	array_path = (char **)calloc(100, sizeof(char *));
+	array_path = (char **)_calloc(100, sizeof(char *));
 	if (!array_path)
 		return (NULL);
 	while (str_p[i])
@@ -43,19 +43,19 @@ char *search_path(char *command)
 	if (stat(command, &info) == 0)
 		return (command);
 
-	cpy = malloc(strlen(str_path) + 1);
+	cpy = malloc(_strlen(str_path) + 1);
 	/* path copy */
-	cpy = strcpy(cpy, str_path);
+	cpy = _strcpy(cpy, str_path);
 	/* split the path with a delimiter */
 	array_path = func_strtok(cpy, ":");
 	/* the path is traversed */
 	while (array_path[i] != NULL)
 	{
-		len_root = strlen(array_path[i]);
+		len_root = _strlen(array_path[i]);
 		if (array_path[i][len_root - 1] != '/')
-			found_path = strcat(array_path[i], "/");
+			found_path = _strcat(array_path[i], "/");
 
-		found_path = strcat(array_path[i], command);
+		found_path = _strcat(array_path[i], command);
 		/* if it finds the command it exits with 1 */
 		if (stat(found_path, &info) == 0)
 		{

@@ -17,12 +17,14 @@
 
 extern char **environ;
 
-char **func_strtok(char *str_p, char *delim);
 int _strcmp(char *s1, char *s2);
 char *_strcpy(char *dest, char *src);
-char *_getenv(const char *name);
 char *_strcat(char *dest, char *src);
+void *_calloc(unsigned int nmemb, unsigned int size);
+int _strlen(char *s);
 void execute_env(char **arg, char **environ);
+char **func_strtok(char *str_p, char *delim);
 char *search_path(char *command);
+char *_getenv(const char *name);
 void _env(void);
 #endif
