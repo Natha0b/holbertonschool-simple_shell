@@ -7,7 +7,7 @@
  * Return: void
 */
 
-void execute_env(char **arg, char **environ)
+int execute_env(char **arg, char **environ)
 {
 	pid_t p_id;
 	int status;
@@ -39,4 +39,5 @@ void execute_env(char **arg, char **environ)
 	else
 		perror("Error:");
 	free(arg);
+	return (status);
 }

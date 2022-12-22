@@ -20,22 +20,17 @@ int main(int argc, char **environ)
 	{
 		if (isatty(0))
 			printf("$ ");
-		/* read the command line */
 		get_len = getline(&buff, &read_len, stdin);
-		/* if it fails we release and break the loop */
 		if (get_len == -1 || _strcmp("exit\n", buff) == 0)
 		{
 			free(buff);
 			break;
 		}
-		/* the null is removed at the end of the read line */
 		buff[get_len - 1] = '\0';
-		/* we compare that the word env is equal to the command */
 		if (_strcmp("env", buff) == 0)
 			_env();
-		/* we split the path of the command */
 		arg = func_strtok(buff, " ");
-		execute_env(arg, environ);
+		status = execute_env(arg, environ);
 	}
 	return (status);
 }
