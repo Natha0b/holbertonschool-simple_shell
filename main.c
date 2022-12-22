@@ -20,28 +20,28 @@ int main(int argc, char **arg)
 	{
 		if (isatty(0))
 			printf("$ ");
-		/* lee la linea de comando */
+		/* read the command line */
 		returned_len = getline(&buff, &read_len, stdin);
-		/* si falla liberamos y rompemos el ciclo */
+		/* if it fails we release and break the loop */
 		if (returned_len == -1 || _strcmp("exit\n", buff) == 0)
 		{
 			free(buff);
 			break;
 		}
-		/* se quita el nullo al final de la linea leida */
+		/* the null is removed at the end of the read line */
 		buff[returned_len - 1] = '\0';
-		/* comparamos que la palabra env sea igual al comando */
+		/* we compare that the word env is equal to the command */
 		if (_strcmp("env", buff) == 0)
 			_env();
-		/* dividimos la ruta de el comando */
+		/* we split the path of the command */
 		arg = func_strtok(buff, " ");
-		/* llamamos a path y le pasamos el primer el comando */
+		/* we call path and pass the first command to it */
 		arg[0] = search_path(arg[0]);
 		if (arg[0] != NULL)
 		{
-			/* creamos el proceso hijo */
+			/* we create the child process */
 			p_id = fork();
-			/* si el proceso hijo falla imprimimos un error si no se ejecuta el comando*/
+			/* if the child process fails we print an error if the command is not executed. */
 			if (p_id == 0)
 			{
 				if (execve(arg[0], arg, NULL) == -1)
@@ -51,13 +51,13 @@ int main(int argc, char **arg)
 			}
 			else
 			{
-				/* esperamos que el proceso hijo muera */
+				/* we expect the son process to die */
 				wait(&status);
 				if (WIFEXITED(status))
 					status = WEXITSTATUS(status);
 			}
 		}
-		/* si el proceso hijo falla imprimimos error */
+		/* if the child process fails we print error */
 		else
 			perror("Error:");
 		free(arg);
