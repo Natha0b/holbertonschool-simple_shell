@@ -20,6 +20,10 @@ All of the following folders are projects done during the studies:
 
 
 ## Flow Chart📊
+
+<img src="https://i.imgur.com/Zn3soaQ.jpg" alt="Flow Chart">
+
+
 ## Examples🧩
 
 #### AUTHORS✒️
