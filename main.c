@@ -22,13 +22,13 @@ int main(int argc, char **arg, char **environ)
 		/* read the command line */
 		get_len = getline(&buff, &read_len, stdin);
 		/* if it fails we release and break the loop */
-		if (returned_len == -1 || _strcmp("exit\n", buff) == 0)
+		if (get_len == -1 || _strcmp("exit\n", buff) == 0)
 		{
 			free(buff);
 			break;
 		}
 		/* the null is removed at the end of the read line */
-		buff[returned_len - 1] = '\0';
+		buff[get_len - 1] = '\0';
 		/* we compare that the word env is equal to the command */
 		if (_strcmp("env", buff) == 0)
 			_env();
