@@ -21,29 +21,29 @@ int main(void)
 		if (get_len == -1 || _strcmp("exit\n", buff) == 0)
 		{
 			free(buff);
-			break; }
+			break;
+		}
 		buff[get_len - 1] = '\0';
 		if (_strcmp("env", buff) == 0)
 		{
 			_env();
-			continue; }
+			continue;
+		}
 		for (i = 0; buff[i] != '\0'; i++) /* Check if input has spaces */
 		{
 			if (buff[i] != ' ')
 			{
 				spaces = 0;
 				break;
-			} }
+			}
+		}
 		if (spaces == 1)
 		{
 			status = 0;
-			continue; }
+			continue;
+		}
 		arg = func_strtok(buff, " ");
-		if (arg[0] != NULL)
-			status = execute_env(arg);
-		else
-			perror("Error");
-		free(arg);
+		status = execute_env(arg);
 	}
 	return (status);
 }
