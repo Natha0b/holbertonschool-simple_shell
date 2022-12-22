@@ -6,6 +6,7 @@
  *@s2: variable punter
  *Return: pointer
  */
+
 int _strcmp(char *s1, char *s2)
 {
 	while (*s1 != '\0' || *s2 != '\0')
@@ -27,6 +28,7 @@ int _strcmp(char *s1, char *s2)
  *@src: varible punter
  *Return: pointer
  */
+
 char *_strcpy(char *dest, char *src)
 {
 	char *p = dest;
@@ -49,6 +51,7 @@ char *_strcpy(char *dest, char *src)
  *@src: varible punter
  *Return: pointer
  */
+
 char *_strcat(char *dest, char *src)
 {
 	char *p = dest;
