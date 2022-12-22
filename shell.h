@@ -24,5 +24,5 @@ char *_getenv(const char *name);
 char *_strcat(char *dest, char *src);
 void execute_env(char **arg, char **environ);
 char *search_path(char *command);
-void _env();
+void _env(void);
 #endif
