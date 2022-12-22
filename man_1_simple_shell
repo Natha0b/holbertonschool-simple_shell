@@ -1,4 +1,4 @@
-.TH SHELL 12/12/2022/MANUAL
+.TH SIMPLE SHELL 12/12/2022/MANUAL
 
 .SH NAME
 Shell(1)
@@ -9,6 +9,9 @@ The shell is an operating system tool that mediates between the user and the ope
 
 .SH DESCRIPTION
 In this project the reconstruction of the Unix Shell a command line interpreter is performed, which communicates with various programs thus performing actions similar to Unix operating systems, by Holberton School for the software development fundamentals program.
+
+COMPILATION
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh and run the interpreter mode with ./hsh. In addition, use echo "ls" | ./hsh to use non-interactive mode.
 
 .SH OPTIONS
 Executes an command if followed by the prompt and displays its contents if the shell understands it, the arguments covered by the shell are:
@@ -24,6 +27,18 @@ the path command is the sequence of directories to be traversed to access a give
 .B pwd
 .RS
 the pwd command prints the current directory name
+.RE
+.B echo 
+The echo command in linux is used to display line of text/string that are passed as an argument.
+.RE
+.B -env
+.RS
+Prints current environment.
+.RE
+.B -exit
+.RS
+The exit command causes normal process termination of the Shell.
+
 
 AUTHORS
 -Jaime Andres Rodriguez Solarte.
