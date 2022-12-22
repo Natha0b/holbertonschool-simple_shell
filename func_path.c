@@ -9,7 +9,7 @@
 
 char **func_strtok(char *str_p, char *delim)
 {
-	char *split, **array_path;
+	char *split, **array_path = NULL;
 	int i = 0, j = 0;
 
 	array_path = (char **)_calloc(100, sizeof(char *));
