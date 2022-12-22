@@ -49,8 +49,6 @@ int main(int argc, char **arg)
 					status = WEXITSTATUS(status);
 			}
 		}
-		else
-			perror("Error");
 	}
 	free(arg);
 	return (0);
