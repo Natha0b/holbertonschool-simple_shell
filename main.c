@@ -39,7 +39,6 @@ int main(void)
 			status = 0;
 			continue; }
 		arg = func_strtok(buff, " ");
-		arg[0] = search_path(arg[0]);
 		if (arg[0] != NULL)
 			status = execute_env(arg);
 		else
