@@ -8,11 +8,12 @@
  * Return: int
  */
 
-int main(int argc, char **arg, char **environ)
+int main(int argc, char **environ)
 {
-	char *buff = NULL;
+	char *buff = NULL, **arg;
 	size_t read_len = 0;
 	ssize_t get_len = 0;
+	int status = 0;
 
 	(void)argc;
 	while (1)
@@ -36,5 +37,5 @@ int main(int argc, char **arg, char **environ)
 		arg = func_strtok(buff, " ");
 		execute_env(arg, environ);
 	}
-	return (0);
+	return (status);
 }
