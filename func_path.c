@@ -36,14 +36,15 @@ char **func_strtok(char *str_p, char *delim)
 char *search_path(char *command)
 {
 	char *found_path, **array_path, *cpy;
-	int len_root, i = 0;
+	int len_root, aux = 0, i = 0;
 	struct stat info;
 	char *str_path = _getenv("PATH");
 
+	if (stat(command, &info) == 0)
+		return (command);
 	cpy = malloc(strlen(str_path) + 1);
 	cpy = strcpy(cpy, str_path);
 	array_path = func_strtok(cpy, ":");
-	
 	while (array_path[i] != NULL)
 	{
 		len_root = strlen(array_path[i]);
@@ -52,8 +53,14 @@ char *search_path(char *command)
 
 		found_path = strcat(array_path[i], command);
 		if (stat(found_path, &info) == 0)
+		{
+			aux = 1;
 			break;
+		}
 		i++;
 	}
+	if (!aux)
+		return (NULL);
+	free(array_path);
 	return (found_path);
 }
