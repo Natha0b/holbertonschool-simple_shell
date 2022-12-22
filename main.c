@@ -2,19 +2,17 @@
 
 /**
  * main - function main
- * @argc: variable int
- * @environ: variable char
+ * @void: variable
  * Return: int
  */
 
-int main(int argc, char **environ)
+int main(void)
 {
 	char *buff = NULL, **arg;
 	size_t read_len = 0;
 	ssize_t get_len = 0;
-	int status = 0;
+	int i, spaces = 1, status = 0;
 
-	(void)argc;
 	while (1)
 	{
 		if (isatty(0))
@@ -23,13 +21,30 @@ int main(int argc, char **environ)
 		if (get_len == -1 || _strcmp("exit\n", buff) == 0)
 		{
 			free(buff);
-			break;
-		}
+			break; }
 		buff[get_len - 1] = '\0';
 		if (_strcmp("env", buff) == 0)
+		{
 			_env();
+			continue; }
+		for (i = 0; buff[i] != '\0'; i++) /* Check if input has spaces */
+		{
+			if (buff[i] != ' ')
+			{
+				spaces = 0;
+				break;
+			} }
+		if (spaces == 1)
+		{
+			status = 0;
+			continue; }
 		arg = func_strtok(buff, " ");
-		status = execute_env(arg, environ);
+		arg[0] = search_path(arg[0]);
+		if (arg[0] != NULL)
+			status = execute_env(arg);
+		else
+			perror("Error");
+		free(arg);
 	}
 	return (status);
 }

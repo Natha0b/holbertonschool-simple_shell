@@ -38,6 +38,7 @@ int execute_env(char **arg, char **environ)
 	/* if the child process fails we print error */
 	else
 		perror("Error:");
+
 	free(arg);
 	return (status);
 }
